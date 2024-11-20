@@ -13,6 +13,12 @@ git clone https://github.com/kjeelani/bedtalks-rag-tutorial.git
 cd bedtalks-rag-tutorial
 ```
 
+### **Set up your Virtual Environment**
+1) Open the folder in VSCode if not done already
+2) In a terminal, enter `python -m venv env`. This sets up your virtual environment (more on that [here](https://docs.python.org/3/library/venv.html))
+3) Then, if you are on Windows enter `env/Scripts/activate`. If you are on Mac enter `source env/bin/activate`. You should see in your terminal (env) before each line.
+4) Finally enter `pip install pinecone-client openai python_dotenv`. You are now ready to work with the repository!
+
 ### **Set up a Pinecone Account**
 To use Pinecone:
 1) [Sign up here](https://www.pinecone.io/)
