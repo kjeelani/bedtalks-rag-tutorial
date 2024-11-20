@@ -28,13 +28,13 @@ def search_talks(query_embedding, max_res=3, threshold=0.4):
         return []
     index = pinecone.Index(index_name)
 
-    # Get matches and filter them using the threshold
-    raw_results = index.query(
-        vector=query_embedding, top_k=max_res, include_metadata=True
-    )
-    filtered_results = [
-        match["metadata"]
-        for match in raw_results["matches"]
-        if match["score"] >= threshold
-    ]
-    return filtered_results
+    results = []
+    """
+        TODO: Query the index and filter the metadata to ensure
+        only results with similarity score above the threshold
+        are returned.
+
+        Also make sure to use the max_res parameter to limit search results
+    """
+
+    return results

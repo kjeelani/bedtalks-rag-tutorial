@@ -2,33 +2,12 @@ import os
 from openai import OpenAI
 from dotenv import load_dotenv
 
-from db.search import search_talks
-
 load_dotenv()  # Load environment vars
-
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-
+# TODO: Fill in this prompt
 REWRITE_TO_TITLE_PROMPT = """
-Your job is to write the user query into a motivational video titles (5-8 words).
-If the query seems hard to rewrite, just return "xxx"
 
-Query: How can I stay motivated during tough times?
-Title: Staying Motivated Through Life's Challenges
-
-Query: What are some tips to be more productive?
-Title: Mastering Productivity with Simple Strategies
-
-Query: How do I build resilience in my life?
-Title: Building Resilience to Overcome Life's Obstacles
-
-Query: What’s the secret to being a good leader?
-Title: The Key to Inspirational Leadership
-
-Query: Krunchy Krispy Treats Eat My Feet
-Title: xxx
-
-Now rewrite the user query into a motivational video title:
 """
 
 # Main Search Loop
@@ -61,8 +40,8 @@ while True:
         .embedding
     )
 
-    # Search Pinecone for results -> in form {video_url, video_title}
-    results = search_talks(query_embedding)
+    # TODO: Replace with proper function call
+    results = []
 
     # Display results
     print("\nTop Results:")

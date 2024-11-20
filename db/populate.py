@@ -17,7 +17,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 pinecone = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 
 
-# Create (if necessary) the indez and load it
+# Create (if necessary) the index and load it
 index_name = os.getenv("PINECONE_INDEX_NAME")
 if index_name not in pinecone.list_indexes().names():
     pinecone.create_index(
@@ -45,13 +45,16 @@ for bed_talk in bed_talks:
         .embedding
     )
 
-    # Add to Pinecone DB
-    index.upsert(
-        [
-            (
-                bed_talk["video_url"],
-                embedding,
-                {"title": bed_talk["video_title"], "url": bed_talk["video_url"]},
-            )  # (id, embedding, metadata to be retrieved)
-        ]
-    )
+    """
+        TODO: Determine how to add to the Pinecone Database using it's documentation
+
+        You need to use the video_url as the id, pass in the embedding, and the metadata 
+        
+        Metadata should be in the following form:
+        {
+            video_url: str,
+            video_title: str,
+            speakers: str,
+            video_transcript: str
+        }
+    """
